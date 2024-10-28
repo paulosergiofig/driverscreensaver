@@ -13,11 +13,11 @@ function updateClock() {
   const year = now.getFullYear();
   const fullDate = `${day} de ${month} de ${year}`;
 
-  document.getElementById('hours').textContent = hours;
-  document.getElementById('minutes').textContent = minutes;
-  document.getElementById('seconds').textContent = seconds;
-  document.getElementById('dayOfWeek').textContent = dayOfWeek;
-  document.getElementById('fullDate').textContent = fullDate;
+  document.getElementById('horas').textContent = hours;
+  document.getElementById('minutos').textContent = minutes;
+  document.getElementById('segundos').textContent = seconds;
+  document.getElementById('diadasemana').textContent = dayOfWeek;
+  document.getElementById('datacompleta').textContent = fullDate;
 }
 
 function updateLocation() {
@@ -29,18 +29,18 @@ function updateLocation() {
           .then(response => response.json())
           .then(data => {
             const location = data.address.city || data.address.town || data.address.village || "Localização desconhecida";
-            document.getElementById('location').textContent = location;
+            document.getElementById('localizacao').textContent = location;
           })
           .catch(() => {
-            document.getElementById('location').textContent = "Localização não disponível";
+            document.getElementById('localizacao').textContent = "Localização não disponível";
           });
       },
       () => {
-        document.getElementById('location').textContent = "Localização desativada";
+        document.getElementById('localizacao').textContent = "Localização desativada";
       }
     );
   } else {
-    document.getElementById('location').textContent = "Geolocalização não suportada";
+    document.getElementById('localizacao').textContent = "Geolocalização não suportada";
   }
 }
 
